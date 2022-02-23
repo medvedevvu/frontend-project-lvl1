@@ -3,6 +3,12 @@ on: push
 jobs:
   my-job:
     runs-on: ubuntu-latest
+
     steps:
-      - name: my-step
-        run: make lint
+    - uses: actions/checkout@v2
+    
+    - name: Install dependencies
+      run: make
+      
+    - name: Run lint
+      run: make lint
