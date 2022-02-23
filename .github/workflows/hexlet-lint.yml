@@ -1,4 +1,4 @@
-name: do-lint
+name: do-linter
 on: push
 jobs:
   my-job:
