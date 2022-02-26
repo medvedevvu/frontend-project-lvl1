@@ -41,20 +41,19 @@ const greeting = () => {
   return name;
 };
 
-const userName = greeting();
-const message = 'Answer "yes" if the number is even, otherwise answer "no".';
-const correctAnswer = 'Correct!';
-const finalMessage = `Congratulations, ${userName}`;
+const main = (pUserName) => {
+  const userName = pUserName;
+  const message = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const correctAnswer = 'Correct!';
+  const finalMessage = `Congratulations, ${userName}`;
+  let timesToTry = 3;
 
-let timesToTry = 3;
+  console.log(`${message}`);
 
-console.log(`${message}`);
-const main = () => {
   while (timesToTry > 0) {
     const [expr, answer] = newRandom();
     console.log(`Question: ${expr}`);
-    let userAnswer = readlineSync.question('Your answer: ');
-    userAnswer = Number.parseInt(userAnswer, 10);
+    const userAnswer = Number.parseInt(readlineSync.question('Your answer: '), 10);
     if (answer === userAnswer) {
       console.log(`${correctAnswer}`);
       timesToTry -= 1;
@@ -70,4 +69,4 @@ const main = () => {
   console.log(`${finalMessage}`);
 };
 
-main();
+main(greeting());
