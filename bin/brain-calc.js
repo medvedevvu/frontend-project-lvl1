@@ -41,26 +41,27 @@ const greeting = () => {
   return name;
 };
 
-const userName = greeting();
-const message = 'What is the result of the expression?';
-const correctAnswer = 'Correct!';
-const finalMessage = `Congratulations, ${userName}`;
-
-let timesToTry = 3;
-
-console.log(`${message}`);
-const main = () => {
+const main = (puserGreet, beginMessage, fUserQestion, fEgualFunc ) => {
+  const userName = puserGreet;
+  const message = beginMessage; 
+  const correctAnswer = 'Correct!';
+  const finalMessage = `Congratulations, ${userName}`;
+  
+  let timesToTry = 3;
+  
+  console.log(`${message}`);
+  
   while (timesToTry > 0) {
-    const [expr, answer] = newRandom();
-    console.log(`Question: ${expr}`);
-    let userAnswer = readlineSync.question('Your answer: ');
-    userAnswer = Number.parseInt(userAnswer, 10);
-    if (answer === userAnswer) {
+    const [newRnd, answer] = newRandom();
+    console.log(`Question: ${newRnd}`);
+    const userAnswer = fUserQestion(); 
+    if (fEgualFunc(newRnd, answer, userAnswer)) {
       console.log(`${correctAnswer}`);
       timesToTry -= 1;
     } else {
-      const errorMessage = `'${userAnswer}' is wrong answer ;(. `.concat(
-        `Correct answer was '${answer}'.\nLet's try again, ${userName}!`,
+      const [second, uAnswer, uName] = [answer, userAnswer, userName];
+      const errorMessage = `'${uAnswer}' is wrong answer ;(. `.concat(
+        `Correct answer was '${second}'.\nLet's try again, ${uName}!`,
       );
       console.log(`${errorMessage}`);
 
@@ -70,4 +71,7 @@ const main = () => {
   console.log(`${finalMessage}`);
 };
 
-main();
+const vbeginMessage = 'What is the result of the expression?';
+const vUserQestion = () => Number.parseInt( readlineSync.question('Your answer: '), 10);
+const vEgualFunc = (rnd, a, b) => a === b ; 
+main(greeting(), vbeginMessage, vUserQestion,vEgualFunc);

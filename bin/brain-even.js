@@ -3,7 +3,7 @@ import readlineSync from 'readline-sync';
 
 const isEven = (x) => x % 2 === 0;
 
-const newRandom = () => Math.floor(Math.random() * 100);
+const newRandom = () => [Math.floor(Math.random() * 100), -1];
 
 const greeting = () => {
   const name = readlineSync.question('May I have your name? ');
@@ -19,29 +19,27 @@ const normAnswer = (w) => {
   return 'no';
 };
 
-const userName = greeting();
-const message = 'Answer "yes" if the number is even, otherwise answer "no".';
-const correctAnswer = 'Correct!';
-const finalMessage = `Congratulations, ${userName}`;
-
-let timesToTry = 3;
-
-console.log(`${message}`);
-const main = () => {
+const main = (puserGreet, beginMessage, fUserQestion, fEgualFunc) => {
+  const userName = puserGreet;
+  const message = beginMessage; 
+  const correctAnswer = 'Correct!';
+  const finalMessage = `Congratulations, ${userName}`;
+  
+  let timesToTry = 3;
+  
+  console.log(`${message}`);
   while (timesToTry > 0) {
-    const newRnd = newRandom();
+    const [newRnd, answer] = newRandom();
     console.log(`Question: ${newRnd}`);
-    const userAnswer = normAnswer(readlineSync.question('Your answer: '));
-    if (
-      (isEven(newRnd) && userAnswer === 'yes')
-      || (!isEven(newRnd) && userAnswer === 'no')
-    ) {
+    const userAnswer = fUserQestion(); 
+    if ( fEgualFunc(newRnd, answer, userAnswer) )
+    {
       console.log(`${correctAnswer}`);
       timesToTry -= 1;
     } else {
-      const second = userAnswer === 'yes' ? 'no' : 'yes';
-      const errorMessage = `'${userAnswer}' is wrong answer ;(. `.concat(
-        `Correct answer was '${second}'.\nLet's try again, ${userName}!`,
+      const [second, uAnswer, uName] = [userAnswer === 'yes' ? 'no' : 'yes', userAnswer, userName];
+      const errorMessage = `'${uAnswer}' is wrong answer ;(. `.concat(
+        `Correct answer was '${second}'.\nLet's try again, ${uName}!`,
       );
       console.log(`${errorMessage}`);
 
@@ -51,4 +49,7 @@ const main = () => {
   console.log(`${finalMessage}`);
 };
 
-main();
+const vbeginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
+const vUserQestion = () => normAnswer(readlineSync.question('Your answer: '));
+const vEgualFunc = (rnd, a, b) =>  (isEven(rnd) && b === 'yes') || (!isEven(rnd) && b === 'no'); 
+main(greeting(), vbeginMessage, vUserQestion,vEgualFunc);
