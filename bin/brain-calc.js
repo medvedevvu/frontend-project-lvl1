@@ -42,7 +42,7 @@ const greeting = () => {
 };
 
 const userName = greeting();
-const message = 'Answer "yes" if the number is even, otherwise answer "no".';
+const message = 'What is the result of the expression?';
 const correctAnswer = 'Correct!';
 const finalMessage = `Congratulations, ${userName}`;
 

@@ -5,4 +5,4 @@
 
 ### Asciinema link
 
-https://asciinema.org/connect/49d685fb-0107-4a49-a628-79f5b9cdc677
+https://asciinema.org/a/2W9IAgj8wqhmQJVt1MSd8SwZw
