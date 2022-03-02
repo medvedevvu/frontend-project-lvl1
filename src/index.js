@@ -13,3 +13,28 @@ export const greeting = () => {
   console.log(`Hello, ${name}!`);
   return name;
 };
+
+export const main = (puserGreet, fwrongAnswer, beginMessage, fUserQestion, fEgualFunc, fRnd) => {
+  const userName = puserGreet;
+  const message = beginMessage;
+  const correctAnswer = 'Correct!';
+  const finalMessage = `Congratulations, ${userName}`;
+
+  let timesToTry = 3;
+
+  console.log(`${message}`);
+
+  while (timesToTry > 0) {
+    const [newRnd, answer] = fRnd();
+    console.log(`Question: ${newRnd}`);
+    const userAnswer = fUserQestion();
+    if (fEgualFunc(newRnd, answer, userAnswer)) {
+      console.log(`${correctAnswer}`);
+      timesToTry -= 1;
+    } else {
+      fwrongAnswer([answer, userAnswer, userName]);
+      return;
+    }
+  }
+  console.log(`${finalMessage}`);
+};

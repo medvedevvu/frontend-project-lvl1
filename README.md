@@ -10,3 +10,7 @@ https://asciinema.org/a/2W9IAgj8wqhmQJVt1MSd8SwZw
 ### Asciinema brain-calc link
 
 https://asciinema.org/a/WuV27qxh55MTUfMlgmobkW0zt
+
+### Asciinema brain-gcd link
+
+https://asciinema.org/a/473249
