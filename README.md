@@ -14,3 +14,7 @@ https://asciinema.org/a/WuV27qxh55MTUfMlgmobkW0zt
 ### Asciinema brain-gcd link
 
 https://asciinema.org/a/473249
+
+### Asciinema brain-progression link
+
+https://asciinema.org/a/473488

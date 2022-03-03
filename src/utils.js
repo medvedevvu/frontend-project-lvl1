@@ -62,3 +62,22 @@ export const newRandomGcd = () => {
   const answer = gcdTwoNumbers(a, b);
   return [expr, answer];
 };
+
+export const newRandomProgress = () => {
+  const pos = Math.floor(Math.random() * 10);
+  const delta = Math.floor(Math.random() * 10);
+  let index;
+  let str = '';
+  let item = 0;
+  const rndArray = [];
+  for (index = 0; index < 10; index += 1) {
+    item += delta;
+    rndArray.push(item);
+    if (index === pos) {
+      str = str.concat(' .. ');
+    } else {
+      str = str.concat(`${item}`, ' ');
+    }
+  }
+  return [str.trim(), rndArray[pos]];
+};
