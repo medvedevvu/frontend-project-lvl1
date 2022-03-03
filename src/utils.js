@@ -81,3 +81,23 @@ export const newRandomProgress = () => {
   }
   return [str.trim(), rndArray[pos]];
 };
+
+const isPrime = (x) => {
+  if (x === 1) {
+    return false;
+  }
+  let cnt = 0;
+  let index;
+  for (index = 1; index <= x; index += 1) {
+    if ((x % index) === 0) {
+      cnt += 1;
+    }
+  }
+  return (cnt === 2);
+};
+
+export const newRandomPrime = () => {
+  const samp = Math.floor(Math.random() * 100);
+  const ans = isPrime(samp) ? 'yes' : 'no';
+  return [samp, ans];
+};

@@ -18,3 +18,7 @@ https://asciinema.org/a/473249
 ### Asciinema brain-progression link
 
 https://asciinema.org/a/473488
+
+### Asciinema brain-prime link
+
+https://asciinema.org/a/473516
