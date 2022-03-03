@@ -28,7 +28,7 @@ export const main = (puserGreet, fwrongAnswer, beginMessage, fUserQestion, fEgua
     const [newRnd, answer] = fRnd();
     console.log(`Question: ${newRnd}`);
     const userAnswer = fUserQestion();
-    if (fEgualFunc(newRnd, answer, userAnswer)) {
+    if (fEgualFunc(answer, userAnswer)) {
       console.log(`${correctAnswer}`);
       timesToTry -= 1;
     } else {

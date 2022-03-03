@@ -32,7 +32,19 @@ export const newRandomCalc = () => {
   return [expr, doExpr()];
 };
 
-export const newRandomEven = () => [Math.floor(Math.random() * 100), -1];
+const isEven = (x) => x % 2 === 0;
+
+export const newRandomEven = () => {
+  const rnd = Math.floor(Math.random() * 100);
+  let res;
+  if (isEven(rnd)) {
+    res = [rnd, 'yes'];
+  }
+  if (!isEven(rnd)) {
+    res = [rnd, 'no'];
+  }
+  return res;
+};
 
 export const normAnswer = (w) => {
   const rule = ['yes', 'no'];
@@ -101,3 +113,5 @@ export const newRandomPrime = () => {
   const ans = isPrime(samp) ? 'yes' : 'no';
   return [samp, ans];
 };
+
+export const EgualFunc = (a, b) => a === b;
