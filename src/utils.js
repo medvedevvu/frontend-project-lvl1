@@ -116,12 +116,12 @@ export const newRandomPrime = () => {
 
 export const EgualFunc = (a, b) => a === b;
 
-export const checkNumber = (x) => {
+export const checkEnter = (x) => {
   let res;
-  if (Number.isNaN(x)) {
-    res = -1;
-  } else {
+  if (x !== null && x !== '' && x.length > 0) {
     res = x;
+  } else {
+    res = '-1';
   }
   return res;
 };
