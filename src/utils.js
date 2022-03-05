@@ -86,7 +86,7 @@ export const newRandomProgress = () => {
     item += delta;
     rndArray.push(item);
     if (index === pos) {
-      str = str.concat(' .. ');
+      str = str.trim().concat(' .. ');
     } else {
       str = str.concat(`${item}`, ' ');
     }
