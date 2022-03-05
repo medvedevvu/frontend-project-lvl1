@@ -18,7 +18,7 @@ export const main = (puserGreet, fwrongAnswer, beginMessage, fUserQestion, fEgua
   const userName = puserGreet;
   const message = beginMessage;
   const correctAnswer = 'Correct!';
-  const finalMessage = `Congratulations, ${userName}`;
+  const finalMessage = `Congratulations, ${userName}!`;
 
   let timesToTry = 3;
 
