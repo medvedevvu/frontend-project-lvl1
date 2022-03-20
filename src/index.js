@@ -24,13 +24,12 @@ export const main = (puserGreet, fwrongAnswer, beginMessage, fUserQestion, fEgua
 
   console.log(`${message}`);
 
-  while (timesToTry > 0) {
+  for (timesToTry = 3; timesToTry > 0; timesToTry -= 1) {
     const [newRnd, answer] = fRnd();
     console.log(`Question: ${newRnd}`);
     const userAnswer = fUserQestion();
     if (fEgualFunc(answer, userAnswer)) {
       console.log(`${correctAnswer}`);
-      timesToTry -= 1;
     } else {
       fwrongAnswer([answer, userAnswer, userName]);
       return;
