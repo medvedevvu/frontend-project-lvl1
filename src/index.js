@@ -1,39 +1,56 @@
 import readlineSync from 'readline-sync';
 
-export const wrongAnswer = (paramArray) => {
-  const [second, uAnswer, uName] = paramArray;
-  const errorMessage = `'${uAnswer}' is wrong answer ;(. `.concat(
-    `Correct answer was '${second}'.\nLet's try again, ${uName}!`,
+export const setWrongAnswer = (paramArray) => {
+  const [userRigthAnswer, userWrongAnswer, userName] = paramArray;
+  const errorMessage = `'${userWrongAnswer}' is wrong answer ;(. `.concat(
+    `Correct answer was '${userRigthAnswer}'.\nLet's try again, ${userName}!`,
   );
   console.log(`${errorMessage}`);
 };
 
-export const greeting = () => {
+export const setGreeting = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
   return name;
 };
 
-export const main = (puserGreet, fwrongAnswer, beginMessage, fUserQestion, fEgualFunc, fRnd) => {
-  const userName = puserGreet;
+export const setMainFunc = (
+  userGreetFunc,
+  wrongAnswerFunc,
+  beginMessage,
+  userQestionFunc,
+  equalFunc,
+  getNewRandomAndRightAnswer,
+) => {
+  const userName = userGreetFunc;
   const message = beginMessage;
-  const correctAnswer = 'Correct!';
+  const correctAnswerMessage = 'Correct!';
   const finalMessage = `Congratulations, ${userName}!`;
 
-  let timesToTry = 3;
+  let timesToTry;
 
   console.log(`${message}`);
 
   for (timesToTry = 3; timesToTry > 0; timesToTry -= 1) {
-    const [newRnd, answer] = fRnd();
-    console.log(`Question: ${newRnd}`);
-    const userAnswer = fUserQestion();
-    if (fEgualFunc(answer, userAnswer)) {
-      console.log(`${correctAnswer}`);
+    const [newRandomValue, rightAnswer] = getNewRandomAndRightAnswer();
+    console.log(`Question: ${newRandomValue}`);
+    const userAnswer = userQestionFunc();
+    if (equalFunc(rightAnswer, userAnswer)) {
+      console.log(`${correctAnswerMessage}`);
     } else {
-      fwrongAnswer([answer, userAnswer, userName]);
+      wrongAnswerFunc([rightAnswer, userAnswer, userName]);
       return;
     }
   }
   console.log(`${finalMessage}`);
+};
+
+export const isEqual = (a, b) => a === b;
+
+export const formatAnswer = (answer) => {
+  const rule = ['yes', 'no'];
+  if (rule.indexOf(answer) === 0 || rule.indexOf(answer) === 1) {
+    return answer;
+  }
+  return 'no';
 };

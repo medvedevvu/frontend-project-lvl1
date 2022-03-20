@@ -1,16 +1,38 @@
 import readlineSync from 'readline-sync';
-import { wrongAnswer, greeting, main } from '../index.js';
-import { newRandomGcd, EgualFunc } from '../utils.js';
+import {
+  setWrongAnswer, setGreeting, setMainFunc, isEqual,
+} from '../index.js';
 
-const vbeginMessage = 'Find the greatest common divisor of given numbers';
-const vUserQestion = () => Number.parseInt(readlineSync.question('Your answer: '), 10);
-const play = () => main(
-  greeting(),
-  wrongAnswer,
-  vbeginMessage,
-  vUserQestion,
-  EgualFunc,
-  newRandomGcd,
+const getNewRandomGcd = () => {
+  const a = Math.floor(Math.random() * 100);
+  const b = Math.floor(Math.random() * 100);
+  const getTwoNumbers = (x, y) => {
+    if ((typeof x !== 'number') || (typeof y !== 'number')) {
+      return false;
+    }
+    let x1 = Math.abs(x);
+    let y1 = Math.abs(y);
+    while (y1) {
+      const t = y1;
+      y1 = x1 % y1;
+      x1 = t;
+    }
+    return x1;
+  };
+  const expressionStr = `${a} ${b}`;
+  const rightAnswer = getTwoNumbers(a, b);
+  return [expressionStr, rightAnswer];
+};
+
+const beginMessage = 'Find the greatest common divisor of given numbers';
+const getUserQestion = () => Number.parseInt(readlineSync.question('Your answer: '), 10);
+const play = () => setMainFunc(
+  setGreeting(),
+  setWrongAnswer,
+  beginMessage,
+  getUserQestion,
+  isEqual,
+  getNewRandomGcd,
 );
 
 export default play;

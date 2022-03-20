@@ -1,16 +1,37 @@
 import readlineSync from 'readline-sync';
-import { wrongAnswer, greeting, main } from '../index.js';
-import { newRandomPrime, normAnswer, EgualFunc } from '../utils.js';
+import {
+  setWrongAnswer, setGreeting, setMainFunc, isEqual, formatAnswer,
+} from '../index.js';
 
-const vbeginMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const vUserQestion = () => normAnswer(readlineSync.question('Your answer: '));
-const play = () => main(
-  greeting(),
-  wrongAnswer,
-  vbeginMessage,
-  vUserQestion,
-  EgualFunc,
-  newRandomPrime,
+const isPrime = (x) => {
+  if (x === 1) {
+    return false;
+  }
+  let cnt = 0;
+  let index;
+  for (index = 1; index <= x; index += 1) {
+    if ((x % index) === 0) {
+      cnt += 1;
+    }
+  }
+  return (cnt === 2);
+};
+
+const getNewRandomPrime = () => {
+  const randomValue = Math.floor(Math.random() * 100);
+  const rightAnswer = isPrime(randomValue) ? 'yes' : 'no';
+  return [randomValue, rightAnswer];
+};
+
+const beginMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const getUserQestion = () => formatAnswer(readlineSync.question('Your answer: '));
+const play = () => setMainFunc(
+  setGreeting(),
+  setWrongAnswer,
+  beginMessage,
+  getUserQestion,
+  isEqual,
+  getNewRandomPrime,
 );
 
 export default play;

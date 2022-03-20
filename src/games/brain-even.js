@@ -1,16 +1,31 @@
 import readlineSync from 'readline-sync';
-import { wrongAnswer, greeting, main } from '../index.js';
-import { newRandomEven, normAnswer, EgualFunc } from '../utils.js';
+import {
+  setWrongAnswer, setGreeting, setMainFunc, isEqual, formatAnswer,
+} from '../index.js';
 
-const vbeginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
-const vUserQestion = () => normAnswer(readlineSync.question('Your answer: '));
-const play = () => main(
-  greeting(),
-  wrongAnswer,
-  vbeginMessage,
-  vUserQestion,
-  EgualFunc,
-  newRandomEven,
+const isEven = (x) => x % 2 === 0;
+
+const getNewRandomEven = () => {
+  const randomValue = Math.floor(Math.random() * 100);
+  let res;
+  if (isEven(randomValue)) {
+    res = [randomValue, 'yes'];
+  }
+  if (!isEven(randomValue)) {
+    res = [randomValue, 'no'];
+  }
+  return res;
+};
+
+const beginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
+const getUserQestion = () => formatAnswer(readlineSync.question('Your answer: '));
+const play = () => setMainFunc(
+  setGreeting(),
+  setWrongAnswer,
+  beginMessage,
+  getUserQestion,
+  isEqual,
+  getNewRandomEven,
 );
 
 export default play;
