@@ -26,12 +26,11 @@ export const setMainFunc = (
   const message = beginMessage;
   const correctAnswerMessage = 'Correct!';
   const finalMessage = `Congratulations, ${userName}!`;
-
-  let timesToTry;
+  const timesToTryBorder = 3;
 
   console.log(`${message}`);
 
-  for (timesToTry = 3; timesToTry > 0; timesToTry -= 1) {
+  for (let timesToTry = 0; timesToTry < timesToTryBorder; timesToTry += 1) {
     const [newRandomValue, rightAnswer] = getNewRandomAndRightAnswer();
     console.log(`Question: ${newRandomValue}`);
     const userAnswer = userQestionFunc();
