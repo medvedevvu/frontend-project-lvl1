@@ -9,9 +9,8 @@ const isPrime = (x) => {
     return false;
   }
   let cnt = 0;
-  let index;
-  for (index = 1; index <= x; index += 1) {
-    if ((x % index) === 0) {
+  for (let index = 0; index <= x; index += 1) {
+    if ((x % index) === 0 && index !== 0) {
       cnt += 1;
     }
   }
