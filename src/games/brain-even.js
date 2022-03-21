@@ -1,7 +1,8 @@
 import readlineSync from 'readline-sync';
 import {
-  setWrongAnswer, setGreeting, setMainFunc, isEqual, formatAnswer,
+  setWrongAnswer, setGreeting, setMainFunc, isEqual,
 } from '../index.js';
+import { formatAnswer } from '../utils.js';
 
 const isEven = (x) => x % 2 === 0;
 
