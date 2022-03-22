@@ -14,11 +14,19 @@ export const setGreeting = () => {
   return name;
 };
 
+const formatAnswer = (answer) => {
+  const rule = ['yes', 'no'];
+  if (rule.includes(answer)) {
+    return answer;
+  }
+  return 'no';
+};
+
 export const setMainFunc = (
   userGreetFunc,
   wrongAnswerFunc,
   beginMessage,
-  userQestionFunc,
+  kindUsersQestionFunc,
   equalFunc,
   getNewRandomAndRightAnswer,
 ) => {
@@ -33,7 +41,15 @@ export const setMainFunc = (
   for (let timesToTry = 0; timesToTry < timesToTryBorder; timesToTry += 1) {
     const [newRandomValue, rightAnswer] = getNewRandomAndRightAnswer();
     console.log(`Question: ${newRandomValue}`);
+
+    let userQestionFunc;
+    if (kindUsersQestionFunc === 'number') {
+      userQestionFunc = () => Number.parseInt(readlineSync.question('Your answer: '), 10);
+    } else {
+      userQestionFunc = () => formatAnswer(readlineSync.question('Your answer: '));
+    }
     const userAnswer = userQestionFunc();
+
     if (equalFunc(rightAnswer, userAnswer)) {
       console.log(`${correctAnswerMessage}`);
     } else {

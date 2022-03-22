@@ -1,17 +1,6 @@
-import readlineSync from 'readline-sync';
 import {
   setWrongAnswer, setGreeting, setMainFunc, isEqual,
 } from '../index.js';
-
-const checkEnter = (x) => {
-  let res;
-  if (x !== null && x !== '' && x.length > 0) {
-    res = x;
-  } else {
-    res = '-1';
-  }
-  return res;
-};
 
 const getNewRandomProgress = () => {
   const pos = Math.floor(Math.random() * 10);
@@ -33,12 +22,12 @@ const getNewRandomProgress = () => {
 };
 
 const beginMessage = 'What number is missing in the progression?';
-const getUserQestion = () => Number.parseInt(checkEnter(readlineSync.question('Your answer: ')), 10);
+const kindOfQuestion = 'number';
 const play = () => setMainFunc(
   setGreeting(),
   setWrongAnswer,
   beginMessage,
-  getUserQestion,
+  kindOfQuestion,
   isEqual,
   getNewRandomProgress,
 );

@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import {
   setWrongAnswer, setGreeting, setMainFunc, isEqual,
 } from '../index.js';
@@ -25,12 +24,12 @@ const getNewRandomGcd = () => {
 };
 
 const beginMessage = 'Find the greatest common divisor of given numbers';
-const getUserQestion = () => Number.parseInt(readlineSync.question('Your answer: '), 10);
+const kindOfQuestion = 'number';
 const play = () => setMainFunc(
   setGreeting(),
   setWrongAnswer,
   beginMessage,
-  getUserQestion,
+  kindOfQuestion,
   isEqual,
   getNewRandomGcd,
 );

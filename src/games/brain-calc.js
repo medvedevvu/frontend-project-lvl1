@@ -1,4 +1,3 @@
-import readlineSync from 'readline-sync';
 import {
   setWrongAnswer, setGreeting, setMainFunc, isEqual,
 } from '../index.js';
@@ -38,12 +37,12 @@ const getNewRandomCalc = () => {
 };
 
 const beginMessage = 'What is the result of the expression?';
-const getUserQestion = () => Number.parseInt(readlineSync.question('Your answer: '), 10);
+const kindOfQuestion = 'number';
 const play = () => setMainFunc(
   setGreeting(),
   setWrongAnswer,
   beginMessage,
-  getUserQestion,
+  kindOfQuestion,
   isEqual,
   getNewRandomCalc,
 );

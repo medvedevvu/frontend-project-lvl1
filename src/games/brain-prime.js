@@ -1,8 +1,6 @@
-import readlineSync from 'readline-sync';
 import {
   setWrongAnswer, setGreeting, setMainFunc, isEqual,
 } from '../index.js';
-import { formatAnswer } from '../utils.js';
 
 const isPrime = (x) => {
   if (x === 1) {
@@ -24,12 +22,12 @@ const getNewRandomPrime = () => {
 };
 
 const beginMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const getUserQestion = () => formatAnswer(readlineSync.question('Your answer: '));
+const kindOfQuestion = 'str';
 const play = () => setMainFunc(
   setGreeting(),
   setWrongAnswer,
   beginMessage,
-  getUserQestion,
+  kindOfQuestion,
   isEqual,
   getNewRandomPrime,
 );

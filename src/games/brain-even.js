@@ -1,8 +1,6 @@
-import readlineSync from 'readline-sync';
 import {
   setWrongAnswer, setGreeting, setMainFunc, isEqual,
 } from '../index.js';
-import { formatAnswer } from '../utils.js';
 
 const isEven = (x) => x % 2 === 0;
 
@@ -19,12 +17,12 @@ const getNewRandomEven = () => {
 };
 
 const beginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
-const getUserQestion = () => formatAnswer(readlineSync.question('Your answer: '));
+const kindOfQuestion = 'str';
 const play = () => setMainFunc(
   setGreeting(),
   setWrongAnswer,
   beginMessage,
-  getUserQestion,
+  kindOfQuestion,
   isEqual,
   getNewRandomEven,
 );
