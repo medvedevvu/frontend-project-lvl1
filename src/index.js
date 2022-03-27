@@ -22,7 +22,7 @@ const formatAnswer = (answer) => {
   return 'no';
 };
 
-export const setMainFunc = (
+export const startGame = (
   userGreetFunc,
   wrongAnswerFunc,
   beginMessage,

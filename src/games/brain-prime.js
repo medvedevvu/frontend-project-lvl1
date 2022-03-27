@@ -1,18 +1,18 @@
 import {
-  setWrongAnswer, setGreeting, setMainFunc, isEqual,
+  setWrongAnswer, setGreeting, startGame, isEqual,
 } from '../index.js';
 
 const isPrime = (x) => {
   if (x === 1) {
     return false;
   }
-  let cnt = 0;
+  let result = 0;
   for (let index = 0; index <= x; index += 1) {
     if ((x % index) === 0 && index !== 0) {
-      cnt += 1;
+      result += 1;
     }
   }
-  return (cnt === 2);
+  return (result === 2);
 };
 
 const getNewRandomPrime = () => {
@@ -23,7 +23,7 @@ const getNewRandomPrime = () => {
 
 const beginMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const kindOfQuestion = 'str';
-const play = () => setMainFunc(
+const play = () => startGame(
   setGreeting(),
   setWrongAnswer,
   beginMessage,

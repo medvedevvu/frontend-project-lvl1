@@ -1,31 +1,31 @@
 import {
-  setWrongAnswer, setGreeting, setMainFunc, isEqual,
+  setWrongAnswer, setGreeting, startGame, isEqual,
 } from '../index.js';
 
 const getNewRandomGcd = () => {
-  const a = Math.floor(Math.random() * 100);
-  const b = Math.floor(Math.random() * 100);
-  const getTwoNumbers = (x, y) => {
-    if ((typeof x !== 'number') || (typeof y !== 'number')) {
+  const firstRundomNumber = Math.floor(Math.random() * 100);
+  const secondRundomNumber = Math.floor(Math.random() * 100);
+  const getTwoNumbers = (theFirstValue, theSecondValue) => {
+    if ((typeof theFirstValue !== 'number') || (typeof theSecondValue !== 'number')) {
       return false;
     }
-    let x1 = Math.abs(x);
-    let y1 = Math.abs(y);
-    while (y1) {
-      const t = y1;
-      y1 = x1 % y1;
-      x1 = t;
+    let result = Math.abs(theFirstValue);
+    let theAbsSecondValue = Math.abs(theSecondValue);
+    while (theAbsSecondValue) {
+      const tempVar = theAbsSecondValue;
+      theAbsSecondValue = result % theAbsSecondValue;
+      result = tempVar;
     }
-    return x1;
+    return result;
   };
-  const expressionStr = `${a} ${b}`;
-  const rightAnswer = getTwoNumbers(a, b);
+  const expressionStr = `${firstRundomNumber} ${secondRundomNumber}`;
+  const rightAnswer = getTwoNumbers(firstRundomNumber, secondRundomNumber);
   return [expressionStr, rightAnswer];
 };
 
 const beginMessage = 'Find the greatest common divisor of given numbers';
 const kindOfQuestion = 'number';
-const play = () => setMainFunc(
+const play = () => startGame(
   setGreeting(),
   setWrongAnswer,
   beginMessage,

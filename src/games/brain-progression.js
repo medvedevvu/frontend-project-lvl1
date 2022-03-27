@@ -1,5 +1,5 @@
 import {
-  setWrongAnswer, setGreeting, setMainFunc, isEqual,
+  setWrongAnswer, setGreeting, startGame, isEqual,
 } from '../index.js';
 
 const getNewRandomProgress = () => {
@@ -23,7 +23,7 @@ const getNewRandomProgress = () => {
 
 const beginMessage = 'What number is missing in the progression?';
 const kindOfQuestion = 'number';
-const play = () => setMainFunc(
+const play = () => startGame(
   setGreeting(),
   setWrongAnswer,
   beginMessage,

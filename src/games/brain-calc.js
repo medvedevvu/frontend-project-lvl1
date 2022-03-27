@@ -1,10 +1,10 @@
 import {
-  setWrongAnswer, setGreeting, setMainFunc, isEqual,
+  setWrongAnswer, setGreeting, startGame, isEqual,
 } from '../index.js';
 
 const getNewRandomCalc = () => {
-  const a = Math.floor(Math.random() * 100);
-  const b = Math.floor(Math.random() * 100);
+  const firstRundomNumber = Math.floor(Math.random() * 100);
+  const secondRundomNumber = Math.floor(Math.random() * 100);
   const getOperation = () => {
     const value = Math.floor(Math.random() * 10);
     let operationInStr = '';
@@ -17,7 +17,7 @@ const getNewRandomCalc = () => {
     }
     return operationInStr;
   };
-  const expressionStr = `${a} ${getOperation()} ${b}`;
+  const expressionStr = `${firstRundomNumber} ${getOperation()} ${secondRundomNumber}`;
   const getExecutionResult = () => {
     const elementsOfExpression = expressionStr.split(' ');
     const theFisrtParam = Number.parseInt(elementsOfExpression[0], 10);
@@ -38,7 +38,7 @@ const getNewRandomCalc = () => {
 
 const beginMessage = 'What is the result of the expression?';
 const kindOfQuestion = 'number';
-const play = () => setMainFunc(
+const play = () => startGame(
   setGreeting(),
   setWrongAnswer,
   beginMessage,

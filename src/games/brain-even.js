@@ -1,24 +1,24 @@
 import {
-  setWrongAnswer, setGreeting, setMainFunc, isEqual,
+  setWrongAnswer, setGreeting, startGame, isEqual,
 } from '../index.js';
 
 const isEven = (x) => x % 2 === 0;
 
 const getNewRandomEven = () => {
   const randomValue = Math.floor(Math.random() * 100);
-  let res;
+  let result;
   if (isEven(randomValue)) {
-    res = [randomValue, 'yes'];
+    result = [randomValue, 'yes'];
   }
   if (!isEven(randomValue)) {
-    res = [randomValue, 'no'];
+    result = [randomValue, 'no'];
   }
-  return res;
+  return result;
 };
 
 const beginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
 const kindOfQuestion = 'str';
-const play = () => setMainFunc(
+const play = () => startGame(
   setGreeting(),
   setWrongAnswer,
   beginMessage,
