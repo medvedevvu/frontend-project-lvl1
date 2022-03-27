@@ -1,6 +1,4 @@
-import {
-  setWrongAnswer, setGreeting, startGame, isEqual,
-} from '../index.js';
+import { startGame } from '../index.js';
 
 const isEven = (x) => x % 2 === 0;
 
@@ -17,13 +15,8 @@ const getNewRandomEven = () => {
 };
 
 const beginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
-const kindOfQuestion = 'str';
 const play = () => startGame(
-  setGreeting(),
-  setWrongAnswer,
   beginMessage,
-  kindOfQuestion,
-  isEqual,
   getNewRandomEven,
 );
 

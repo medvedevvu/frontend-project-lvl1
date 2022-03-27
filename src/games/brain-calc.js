@@ -1,6 +1,4 @@
-import {
-  setWrongAnswer, setGreeting, startGame, isEqual,
-} from '../index.js';
+import { startGame } from '../index.js';
 
 const getNewRandomCalc = () => {
   const firstRundomNumber = Math.floor(Math.random() * 100);
@@ -37,13 +35,8 @@ const getNewRandomCalc = () => {
 };
 
 const beginMessage = 'What is the result of the expression?';
-const kindOfQuestion = 'number';
 const play = () => startGame(
-  setGreeting(),
-  setWrongAnswer,
   beginMessage,
-  kindOfQuestion,
-  isEqual,
   getNewRandomCalc,
 );
 

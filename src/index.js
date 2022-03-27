@@ -23,14 +23,12 @@ const formatAnswer = (answer) => {
 };
 
 export const startGame = (
-  userGreetFunc,
-  wrongAnswerFunc,
+  // userGreet,
+  // wrongAnswer,
   beginMessage,
-  kindUsersQestionFunc,
-  equalFunc,
-  getNewRandomAndRightAnswer,
+  getRightAnswer,
 ) => {
-  const userName = userGreetFunc;
+  const userName = setGreeting();// userGreet;
   const message = beginMessage;
   const correctAnswerMessage = 'Correct!';
   const finalMessage = `Congratulations, ${userName}!`;
@@ -39,25 +37,19 @@ export const startGame = (
   console.log(`${message}`);
 
   for (let timesToTry = 0; timesToTry < timesToTryBorder; timesToTry += 1) {
-    const [newRandomValue, rightAnswer] = getNewRandomAndRightAnswer();
+    const [newRandomValue, rightAnswer] = getRightAnswer();
     console.log(`Question: ${newRandomValue}`);
 
-    let userQestionFunc;
-    if (kindUsersQestionFunc === 'number') {
-      userQestionFunc = () => Number.parseInt(readlineSync.question('Your answer: '), 10);
-    } else {
-      userQestionFunc = () => formatAnswer(readlineSync.question('Your answer: '));
-    }
-    const userAnswer = userQestionFunc();
+    const stringAnswer = readlineSync.question('Your answer: ');
+    const numberAnswer = Number.parseInt(stringAnswer, 10);
+    const userAnswer = Number.isNaN(numberAnswer) ? formatAnswer(stringAnswer) : numberAnswer;
 
-    if (equalFunc(rightAnswer, userAnswer)) {
+    if (rightAnswer === userAnswer) {
       console.log(`${correctAnswerMessage}`);
     } else {
-      wrongAnswerFunc([rightAnswer, userAnswer, userName]);
+      setWrongAnswer([rightAnswer, userAnswer, userName]);
       return;
     }
   }
   console.log(`${finalMessage}`);
 };
-
-export const isEqual = (a, b) => a === b;

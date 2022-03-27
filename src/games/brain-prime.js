@@ -1,6 +1,4 @@
-import {
-  setWrongAnswer, setGreeting, startGame, isEqual,
-} from '../index.js';
+import { startGame } from '../index.js';
 
 const isPrime = (x) => {
   if (x === 1) {
@@ -22,13 +20,8 @@ const getNewRandomPrime = () => {
 };
 
 const beginMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-const kindOfQuestion = 'str';
 const play = () => startGame(
-  setGreeting(),
-  setWrongAnswer,
   beginMessage,
-  kindOfQuestion,
-  isEqual,
   getNewRandomPrime,
 );
 

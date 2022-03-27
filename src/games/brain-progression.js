@@ -1,6 +1,4 @@
-import {
-  setWrongAnswer, setGreeting, startGame, isEqual,
-} from '../index.js';
+import { startGame } from '../index.js';
 
 const getNewRandomProgress = () => {
   const pos = Math.floor(Math.random() * 10);
@@ -22,13 +20,8 @@ const getNewRandomProgress = () => {
 };
 
 const beginMessage = 'What number is missing in the progression?';
-const kindOfQuestion = 'number';
 const play = () => startGame(
-  setGreeting(),
-  setWrongAnswer,
   beginMessage,
-  kindOfQuestion,
-  isEqual,
   getNewRandomProgress,
 );
 
