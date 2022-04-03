@@ -8,7 +8,7 @@ const getNewRandomProgress = () => {
   let randomArrayStr = '';
   let item = 0;
   const randomArray = [];
-  for (index = 0; index <= lenOfProgress; index += 1) {
+  for (index = 0; index < lenOfProgress; index += 1) {
     item += delta;
     randomArray.push(item);
     if (index === pos) {
