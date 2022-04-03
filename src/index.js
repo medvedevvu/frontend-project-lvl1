@@ -23,8 +23,6 @@ const formatAnswer = (answer) => {
 };
 
 export const startGame = (
-  // userGreet,
-  // wrongAnswer,
   beginMessage,
   getRightAnswer,
 ) => {

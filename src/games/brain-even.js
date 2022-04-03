@@ -4,13 +4,7 @@ const isEven = (x) => x % 2 === 0;
 
 const getNewRandomEven = () => {
   const randomValue = Math.floor(Math.random() * 100);
-  let result;
-  if (isEven(randomValue)) {
-    result = [randomValue, 'yes'];
-  }
-  if (!isEven(randomValue)) {
-    result = [randomValue, 'no'];
-  }
+  const result = isEven(randomValue) ? [randomValue, 'yes'] : [randomValue, 'no'];
   return result;
 };
 
