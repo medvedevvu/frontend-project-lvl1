@@ -1,7 +1,7 @@
 import { startGame } from '../index.js';
 
 const getNewRandomProgress = () => {
-  const lenOfProgress = Math.floor(Math.random() * 11);
+  const lenOfProgress = 10;
   const pos = Math.floor(Math.random() * lenOfProgress);
   const delta = Math.floor(Math.random() * lenOfProgress);
   let index;
