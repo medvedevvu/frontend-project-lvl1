@@ -1,4 +1,4 @@
-import greet from '../cli.js';
+import greet from './cli.js';
 
 console.log('Welcome to the Brain Games!');
 

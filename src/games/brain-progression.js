@@ -5,19 +5,19 @@ const getNewRandomProgress = () => {
   const pos = Math.floor(Math.random() * LEN_OF_PROGRESS);
   const delta = Math.floor(Math.random() * LEN_OF_PROGRESS);
   let index;
-  let randomArrayStr = '';
-  let item = 0;
-  const randomArray = [];
+  let randomizeArrayInString = '';
+  let formedRandomizeArrayItem = 0;
+  const formedRandomizeArray = [];
   for (index = 0; index < LEN_OF_PROGRESS; index += 1) {
-    item += delta;
-    randomArray.push(item);
+    formedRandomizeArrayItem += delta;
+    formedRandomizeArray.push(formedRandomizeArrayItem);
     if (index === pos) {
-      randomArrayStr = randomArrayStr.trim().concat(' .. ');
+      randomizeArrayInString = randomizeArrayInString.trim().concat(' .. ');
     } else {
-      randomArrayStr = randomArrayStr.concat(`${item}`, ' ');
+      randomizeArrayInString = randomizeArrayInString.concat(`${formedRandomizeArrayItem}`, ' ');
     }
   }
-  return [randomArrayStr.trim(), randomArray[pos]];
+  return [randomizeArrayInString.trim(), formedRandomizeArray[pos]];
 };
 
 const BEGIN_MESSAGE = 'What number is missing in the progression?';
