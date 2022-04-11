@@ -27,9 +27,9 @@ const getNewRandomCalc = () => {
   return [expressionStr, getExecutionResult(expressionStr)];
 };
 
-const beginMessage = 'What is the result of the expression?';
+const BEGIN_MESSAGE = 'What is the result of the expression?';
 const play = () => startGame(
-  beginMessage,
+  BEGIN_MESSAGE,
   getNewRandomCalc,
 );
 

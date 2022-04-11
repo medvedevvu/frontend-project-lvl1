@@ -21,9 +21,9 @@ const getNewRandomGcd = () => {
   return [expressionStr, rightAnswer];
 };
 
-const beginMessage = 'Find the greatest common divisor of given numbers';
+const BEGIN_MESSAGE = 'Find the greatest common divisor of given numbers';
 const play = () => startGame(
-  beginMessage,
+  BEGIN_MESSAGE,
   getNewRandomGcd,
 );
 

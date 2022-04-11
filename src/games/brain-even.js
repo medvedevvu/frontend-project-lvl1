@@ -8,9 +8,9 @@ const getNewRandomEven = () => {
   return result;
 };
 
-const beginMessage = 'Answer "yes" if the number is even, otherwise answer "no".';
+const BEGIN_MESSAGE = 'Answer "yes" if the number is even, otherwise answer "no".';
 const play = () => startGame(
-  beginMessage,
+  BEGIN_MESSAGE,
   getNewRandomEven,
 );
 

@@ -26,15 +26,15 @@ export const startGame = (
   beginMessage,
   getRightAnswer,
 ) => {
-  const userName = setGreeting();// userGreet;
+  const userName = setGreeting();
   const message = beginMessage;
-  const correctAnswerMessage = 'Correct!';
-  const finalMessage = `Congratulations, ${userName}!`;
-  const timesToTryBorder = 3;
+  const CORRECT_ANSWER_MESSAGE = 'Correct!';
+  const FINAL_MESSAGE = `Congratulations, ${userName}!`;
+  const MAX_TIMES_TRY = 3;
 
   console.log(`${message}`);
 
-  for (let timesToTry = 0; timesToTry < timesToTryBorder; timesToTry += 1) {
+  for (let timesToTry = 0; timesToTry < MAX_TIMES_TRY; timesToTry += 1) {
     const [newRandomValue, rightAnswer] = getRightAnswer();
     console.log(`Question: ${newRandomValue}`);
 
@@ -43,11 +43,11 @@ export const startGame = (
     const userAnswer = Number.isNaN(numberAnswer) ? formatAnswer(stringAnswer) : numberAnswer;
 
     if (rightAnswer === userAnswer) {
-      console.log(`${correctAnswerMessage}`);
+      console.log(`${CORRECT_ANSWER_MESSAGE}`);
     } else {
       setWrongAnswer([rightAnswer, userAnswer, userName]);
       return;
     }
   }
-  console.log(`${finalMessage}`);
+  console.log(`${FINAL_MESSAGE}`);
 };

@@ -1,14 +1,14 @@
 import { startGame } from '../index.js';
 
 const getNewRandomProgress = () => {
-  const lenOfProgress = 10;
-  const pos = Math.floor(Math.random() * lenOfProgress);
-  const delta = Math.floor(Math.random() * lenOfProgress);
+  const LEN_OF_PROGRESS = 10;
+  const pos = Math.floor(Math.random() * LEN_OF_PROGRESS);
+  const delta = Math.floor(Math.random() * LEN_OF_PROGRESS);
   let index;
   let randomArrayStr = '';
   let item = 0;
   const randomArray = [];
-  for (index = 0; index < lenOfProgress; index += 1) {
+  for (index = 0; index < LEN_OF_PROGRESS; index += 1) {
     item += delta;
     randomArray.push(item);
     if (index === pos) {
@@ -20,9 +20,9 @@ const getNewRandomProgress = () => {
   return [randomArrayStr.trim(), randomArray[pos]];
 };
 
-const beginMessage = 'What number is missing in the progression?';
+const BEGIN_MESSAGE = 'What number is missing in the progression?';
 const play = () => startGame(
-  beginMessage,
+  BEGIN_MESSAGE,
   getNewRandomProgress,
 );
 

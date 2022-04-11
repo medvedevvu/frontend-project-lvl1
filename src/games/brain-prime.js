@@ -19,9 +19,9 @@ const getNewRandomPrime = () => {
   return [randomValue, rightAnswer];
 };
 
-const beginMessage = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const BEGIN_MESSAGE = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 const play = () => startGame(
-  beginMessage,
+  BEGIN_MESSAGE,
   getNewRandomPrime,
 );
 
