@@ -1,7 +1,7 @@
 import { startGame } from '../index.js';
 
 const getExecutionResult = (fisrtExpressionNumber, operation, secondExpressionNumber) => {
-  /*const elementsOfExpression = expressionStr.split(' ');
+  /* const elementsOfExpression = expressionStr.split(' ');
   const fisrtExpressionNumber = Number.parseInt(elementsOfExpression[0], 10);
   const operation = elementsOfExpression[1];
   const secondExpressionNumber = Number.parseInt(elementsOfExpression[2], 10);
@@ -30,7 +30,11 @@ const getNewRandomCalc = () => {
   };
   const randomOperation = getOperation();
   const expressionStr = `${firstRundomNumber} ${randomOperation} ${secondRundomNumber}`;
-  return [expressionStr, getExecutionResult(firstRundomNumber, randomOperation, secondRundomNumber)];
+  return [expressionStr, getExecutionResult(
+    firstRundomNumber,
+    randomOperation,
+    secondRundomNumber,
+  )];
 };
 
 const BEGIN_MESSAGE = 'What is the result of the expression?';

@@ -2,7 +2,7 @@ import { startGame } from '../index.js';
 
 const isEven = (x) => x % 2 === 0;
 
-const getNewRandomEven = () => {
+const getNewRandomEvenWithAnswer = () => {
   const randomValue = Math.floor(Math.random() * 100);
   const result = isEven(randomValue) ? [randomValue, 'yes'] : [randomValue, 'no'];
   return result;
@@ -11,7 +11,7 @@ const getNewRandomEven = () => {
 const BEGIN_MESSAGE = 'Answer "yes" if the number is even, otherwise answer "no".';
 const play = () => startGame(
   BEGIN_MESSAGE,
-  getNewRandomEven,
+  getNewRandomEvenWithAnswer,
 );
 
 export default play;

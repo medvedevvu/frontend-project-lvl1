@@ -1,6 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/medvedevvu/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/medvedevvu/frontend-project-lvl1/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2df3b66e8ce42d5d4bbf/maintainability)](https://codeclimate.com/github/medvedevvu/frontend-project-lvl1/maintainability)
 [![Actions Status](https://github.com/medvedevvu/frontend-project-lvl1/workflows/do-linter/badge.svg)](https://github.com/medvedevvu/frontend-project-lvl1/actions)
 
 ### Проект "Игры разума"
