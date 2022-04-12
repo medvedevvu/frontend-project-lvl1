@@ -1,32 +1,13 @@
 import readlineSync from 'readline-sync';
 
-export const setWrongAnswer = (paramArray) => {
-  const [userRigthAnswer, userWrongAnswer, userName] = paramArray;
-  const errorMessage = `'${userWrongAnswer}' is wrong answer ;(. `.concat(
-    `Correct answer was '${userRigthAnswer}'.\nLet's try again, ${userName}!`,
-  );
-  console.log(`${errorMessage}`);
-};
-
-export const setGreeting = () => {
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  return name;
-};
-
-const formatAnswer = (answer) => {
-  const rule = ['yes', 'no'];
-  if (rule.includes(answer)) {
-    return answer;
-  }
-  return 'no';
-};
-
 export const startGame = (
   beginMessage,
   getRightAnswer,
 ) => {
-  const userName = setGreeting();
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!`);
+  const userName = name;
+
   const message = beginMessage;
   const CORRECT_ANSWER_MESSAGE = 'Correct!';
   const FINAL_MESSAGE = `Congratulations, ${userName}!`;
@@ -40,14 +21,30 @@ export const startGame = (
 
     const stringAnswer = readlineSync.question('Your answer: ');
     const numberAnswer = Number.parseInt(stringAnswer, 10);
-    const userAnswer = Number.isNaN(numberAnswer) ? formatAnswer(stringAnswer) : numberAnswer;
+
+    let userAnswer;
+    if (Number.isNaN(numberAnswer)) {
+      const rule = ['yes', 'no'];
+      if (rule.includes(stringAnswer)) {
+        userAnswer = stringAnswer;
+      }
+      userAnswer = 'no';
+    } else {
+      userAnswer = numberAnswer;
+    }
 
     if (rightAnswer === userAnswer) {
       console.log(`${CORRECT_ANSWER_MESSAGE}`);
     } else {
-      setWrongAnswer([rightAnswer, userAnswer, userName]);
+      const [userRigthAnswer, userWrongAnswer] = [rightAnswer, userAnswer];
+      const errorMessage = `'${userWrongAnswer}' is wrong answer ;(. `.concat(
+        `Correct answer was '${userRigthAnswer}'.\nLet's try again, ${userName}!`,
+      );
+      console.log(`${errorMessage}`);
       return;
     }
   }
   console.log(`${FINAL_MESSAGE}`);
 };
+
+export default startGame;

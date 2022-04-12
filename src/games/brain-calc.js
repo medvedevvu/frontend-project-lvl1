@@ -1,11 +1,6 @@
 import { startGame } from '../index.js';
 
 const getExecutionResult = (fisrtExpressionNumber, operation, secondExpressionNumber) => {
-  /* const elementsOfExpression = expressionStr.split(' ');
-  const fisrtExpressionNumber = Number.parseInt(elementsOfExpression[0], 10);
-  const operation = elementsOfExpression[1];
-  const secondExpressionNumber = Number.parseInt(elementsOfExpression[2], 10);
-  */
   const parsedFisrtNumber = Number.parseInt(fisrtExpressionNumber, 10);
   const parsedSecondNumber = Number.parseInt(secondExpressionNumber, 10);
   let result = 0;
