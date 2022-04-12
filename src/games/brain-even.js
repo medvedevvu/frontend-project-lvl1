@@ -1,9 +1,11 @@
 import { startGame } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const isEven = (x) => x % 2 === 0;
 
 const getNewRandomEvenWithAnswer = () => {
-  const randomValue = Math.floor(Math.random() * 100);
+  const MAX_NUMBER = 100;
+  const randomValue = getRandomNumber(MAX_NUMBER);
   const result = isEven(randomValue) ? [randomValue, 'yes'] : [randomValue, 'no'];
   return result;
 };

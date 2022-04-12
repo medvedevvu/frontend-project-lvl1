@@ -1,4 +1,5 @@
 import { startGame } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const getExecutionResult = (fisrtExpressionNumber, operation, secondExpressionNumber) => {
   const parsedFisrtNumber = Number.parseInt(fisrtExpressionNumber, 10);
@@ -15,12 +16,13 @@ const getExecutionResult = (fisrtExpressionNumber, operation, secondExpressionNu
 };
 
 const getNewRandomCalc = () => {
-  const firstRundomNumber = Math.floor(Math.random() * 100);
-  const secondRundomNumber = Math.floor(Math.random() * 100);
+  const MAX_NUMBER = 100;
+  const firstRundomNumber = getRandomNumber(MAX_NUMBER);
+  const secondRundomNumber = getRandomNumber(MAX_NUMBER);
   const operationsArray = ['+', '-', '*'];
   const operationsArrayLength = operationsArray.length;
   const getOperation = () => {
-    const randomIndex = () => Math.floor(Math.random() * operationsArrayLength);
+    const randomIndex = () => getRandomNumber(operationsArrayLength);
     return operationsArray[randomIndex()];
   };
   const randomOperation = getOperation();

@@ -1,9 +1,10 @@
 import { startGame } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const getNewRandomProgress = () => {
   const LEN_OF_PROGRESS = 10;
-  const pos = Math.floor(Math.random() * LEN_OF_PROGRESS);
-  const delta = Math.floor(Math.random() * LEN_OF_PROGRESS);
+  const pos = getRandomNumber(LEN_OF_PROGRESS);
+  const delta = getRandomNumber(LEN_OF_PROGRESS);
   let index;
   let randomizeArrayInString = '';
   let formedRandomizeArrayItem = 0;

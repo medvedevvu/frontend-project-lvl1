@@ -1,4 +1,5 @@
 import { startGame } from '../index.js';
+import { getRandomNumber } from '../utils.js';
 
 const getTwoNumbers = (theFirstValue, theSecondValue) => {
   if ((typeof theFirstValue !== 'number') || (typeof theSecondValue !== 'number')) {
@@ -15,8 +16,9 @@ const getTwoNumbers = (theFirstValue, theSecondValue) => {
 };
 
 const getNewRandomGcd = () => {
-  const firstRundomNumber = Math.floor(Math.random() * 100);
-  const secondRundomNumber = Math.floor(Math.random() * 100);
+  const MAX_NUMBER = 100;
+  const firstRundomNumber = getRandomNumber(MAX_NUMBER);
+  const secondRundomNumber = getRandomNumber(MAX_NUMBER);
   const expressionStr = `${firstRundomNumber} ${secondRundomNumber}`;
   const rightAnswer = getTwoNumbers(firstRundomNumber, secondRundomNumber);
   return [expressionStr, rightAnswer];

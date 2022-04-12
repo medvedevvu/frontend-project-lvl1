@@ -22,16 +22,9 @@ export const startGame = (
     const stringAnswer = readlineSync.question('Your answer: ');
     const numberAnswer = Number.parseInt(stringAnswer, 10);
 
-    let userAnswer;
-    if (Number.isNaN(numberAnswer)) {
-      const rule = ['yes', 'no'];
-      if (rule.includes(stringAnswer)) {
-        userAnswer = stringAnswer;
-      }
-      userAnswer = 'no';
-    } else {
-      userAnswer = numberAnswer;
-    }
+    const rule = ['yes', 'no'];
+    const formatedAnswer = rule.includes(stringAnswer) ? stringAnswer : 'no';
+    const userAnswer = Number.isNaN(numberAnswer) ? formatedAnswer : numberAnswer;
 
     if (rightAnswer === userAnswer) {
       console.log(`${CORRECT_ANSWER_MESSAGE}`);
