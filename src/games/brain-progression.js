@@ -2,14 +2,13 @@ import { startGame } from '../index.js';
 import { getRandomNumber } from '../utils.js';
 
 const getNewRandomProgress = () => {
-  const LEN_OF_PROGRESS = 10;
-  const pos = getRandomNumber(LEN_OF_PROGRESS);
-  const delta = getRandomNumber(LEN_OF_PROGRESS);
+  const pos = getRandomNumber(10);
+  const delta = getRandomNumber(10);
   let index;
   let randomizeArrayInString = '';
   let formedRandomizeArrayItem = 0;
   const formedRandomizeArray = [];
-  for (index = 0; index < LEN_OF_PROGRESS; index += 1) {
+  for (index = 0; index < 10; index += 1) {
     formedRandomizeArrayItem += delta;
     formedRandomizeArray.push(formedRandomizeArrayItem);
     if (index === pos) {

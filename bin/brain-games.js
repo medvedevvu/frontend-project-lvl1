@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import play from '../src/brain-games.js';
+import { play } from '../src/cli.js';
 
 play();

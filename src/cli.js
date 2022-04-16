@@ -4,4 +4,13 @@ const greet = () => {
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
 };
-export default greet;
+
+const play = () => {
+  console.log('Welcome to the Brain Games!');
+  greet();
+};
+
+export {
+  greet,
+  play,
+};
