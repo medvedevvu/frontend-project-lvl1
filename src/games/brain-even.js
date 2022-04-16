@@ -4,8 +4,7 @@ import { getRandomNumber } from '../utils.js';
 const isEven = (x) => x % 2 === 0;
 
 const getNewRandomEvenWithAnswer = () => {
-  const MAX_NUMBER = 100;
-  const randomValue = getRandomNumber(MAX_NUMBER);
+  const randomValue = getRandomNumber(100);
   const result = isEven(randomValue) ? [randomValue, 'yes'] : [randomValue, 'no'];
   return result;
 };

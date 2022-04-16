@@ -15,8 +15,7 @@ const isPrime = (x) => {
 };
 
 const getNewRandomPrime = () => {
-  const MAX_NUMBER = 100;
-  const randomValue = getRandomNumber(MAX_NUMBER);
+  const randomValue = getRandomNumber(100);
   const rightAnswer = isPrime(randomValue) ? 'yes' : 'no';
   return [randomValue, rightAnswer];
 };
